@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Blood Request</title>
+</head>
+<body>
+  <h2>Emergency Blood Request</h2>
+  <form id="requestForm">
+    <input type="text" name="patientName" placeholder="Patient Name" required><br>
+    <input type="number" name="age" placeholder="Age" required><br>
+    <input type="text" name="bloodGroup" placeholder="Blood Group" required><br>
+    <input type="text" name="location" placeholder="Location" required><br>
+    <button type="submit">Request Blood</button>
+  </form>
+  <script>
+    document.getElementById('requestForm').onsubmit = async (e) => {
+      e.preventDefault();
+      const formData = new FormData(e.target);
+      const request = Object.fromEntries(formData.entries());
+      const res = await fetch('/api/request-blood', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(request)
+      });
+      if (res.ok) alert("Blood request submitted!");
+    };
+  </script>
+</body>
+</html>
