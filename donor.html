@@ -1,62 +1,49 @@
+<!-- donor.html -->
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Donor Registration</title>
-  <style>
-    body {
-      font-family: Arial;
-      margin: 40px;
-    }
-    #message {
-      color: green;
-      margin-top: 20px;
-    }
-  </style>
+  <meta charset="UTF-8">
+  <title>Register as Donor - VitaLink</title>
 </head>
 <body>
-  <h1>Donor Registration</h1>
+  <h1>Register as Donor</h1>
   <form id="donorForm">
-    <label>Name:</label><br>
-    <input type="text" name="name" required><br><br>
-    
-    <label>Age:</label><br>
-    <input type="number" name="age" required><br><br>
-    
-    <label>Blood Group:</label><br>
-    <input type="text" name="blood" required><br><br>
-    
+    <label>Name: <input type="text" name="name" required></label><br>
+    <label>Age: <input type="number" name="age" required></label><br>
+    <label>Blood Group:
+      <select name="blood" required>
+        <option value="">Select</option>
+        <option>A+</option><option>B+</option><option>O+</option>
+        <option>AB+</option><option>A-</option><option>B-</option>
+        <option>O-</option><option>AB-</option>
+      </select>
+    </label><br><br>
+
     <button type="submit">Register</button>
   </form>
 
-  <div id="message"></div>
-
   <script>
     document.getElementById('donorForm').addEventListener('submit', function(e) {
-      e.preventDefault(); // prevent default form submit
+      e.preventDefault();
       
-      const name = this.name.value.trim();
-      const age = this.age.value;
-      const blood = this.blood.value.trim();
+      const name = e.target.name.value;
+      const age = e.target.age.value;
+      const blood = e.target.blood.value;
 
-      // Simple validation
-      if (!name || !age || !blood) {
-        document.getElementById('message').innerText = "Please fill all fields.";
-        return;
-      }
+      // Store data in localStorage
+      localStorage.setItem('user', JSON.stringify({
+        name,
+        age,
+        blood,
+        type: 'donor',
+        isLoggedIn: true
+      }));
 
-      // Show confirmation message
-      document.getElementById('message').innerText =
-        `Thanks, ${name}. Your donation registration (Age: ${age}, Blood Group: ${blood}) was successful!`;
-      <label>
-  <input type="checkbox" name="premium" value="yes">
-  Opt for Premium Plan (₹999 for 3 years)
-</label>
-
-
-      // Optionally clear the form
-      this.reset();
+      alert("Registration successful! Redirecting to dashboard...");
+      window.location.href = "dashboard.html";  // Redirect to dashboard
     });
   </script>
 </body>
 </html>
+
 
