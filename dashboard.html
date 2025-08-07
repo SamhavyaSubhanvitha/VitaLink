@@ -1,52 +1,36 @@
-<!-- dashboard.html -->
 <!DOCTYPE html>
 <html>
 <head>
-  <meta charset="UTF-8">
   <title>Dashboard - VitaLink</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <h1>Welcome to VitaLink Dashboard</h1>
-  <div id="userInfo"></div>
 
-  <h2>Blood Availability</h2>
-  <ul id="bloodAvailability">
-    <!-- Hardcoded values or fetched from storage -->
+  <div class="dashboard">
+    <div class="card">Total Blood Units: <strong>0</strong></div>
+    <div class="card">Available Donors: <strong>156</strong></div>
+    <div class="card">Registered Hospitals: <strong>42</strong></div>
+    <div class="card">Active Requests: <strong>0</strong></div>
+    <div class="card">Success Rate: <strong>94.5%</strong></div>
+  </div>
+
+  <h3>Blood Inventory Status</h3>
+  <table>
+    <tr><th>Group</th><th>Status</th></tr>
+    <tr><td>A+</td><td>Out of Stock</td></tr>
+    <tr><td>B+</td><td>Out of Stock</td></tr>
+    <tr><td>O+</td><td>Available</td></tr>
+    <tr><td>AB+</td><td>Available</td></tr>
+  </table>
+
+  <h3>Plan Info</h3>
+  <ul>
+    <li>Free Version: Basic Access</li>
+    <li>Premium ₹999: 3-Year Family Coverage (Max 3 Times)</li>
+    <li>Senior Citizens: Always Free Blood Access</li>
   </ul>
-
-  <script>
-    const user = JSON.parse(localStorage.getItem('user'));
-
-    if (!user || !user.isLoggedIn) {
-      alert("You are not logged in. Redirecting to home...");
-      window.location.href = "index.html";
-    } else {
-      // Show user info
-      document.getElementById('userInfo').innerHTML = `
-        <p>Hello, <strong>${user.name}</strong>! You are logged in as a <strong>${user.type}</strong>.</p>
-      `;
-
-      // Display blood availability (hardcoded for now)
-      const bloodInventory = {
-        'A+': 5,
-        'B+': 2,
-        'O+': 0,
-        'AB+': 3,
-        'A-': 1,
-        'B-': 0,
-        'O-': 2,
-        'AB-': 1
-      };
-
-      const list = document.getElementById('bloodAvailability');
-      for (const type in bloodInventory) {
-        const count = bloodInventory[type];
-        const li = document.createElement('li');
-        li.textContent = `${type}: ${count > 0 ? count + ' units' : 'Out of stock'}`;
-        list.appendChild(li);
-      }
-    }
-  </script>
 </body>
 </html>
+
 
