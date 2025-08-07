@@ -1,29 +1,58 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Blood Request</title>
+  <title>Emergency Blood Request</title>
+  <style>
+    body {
+      font-family: Arial;
+      margin: 40px;
+    }
+    #message {
+      color: red;
+      margin-top: 20px;
+    }
+  </style>
 </head>
 <body>
-  <h2>Emergency Blood Request</h2>
-  <form id="requestForm">
-    <input type="text" name="patientName" placeholder="Patient Name" required><br>
-    <input type="number" name="age" placeholder="Age" required><br>
-    <input type="text" name="bloodGroup" placeholder="Blood Group" required><br>
-    <input type="text" name="location" placeholder="Location" required><br>
-    <button type="submit">Request Blood</button>
+  <h1>Emergency Blood Request</h1>
+  <form id="emergencyForm">
+    <label>Patient Name:</label><br>
+    <input type="text" name="patientName" required><br><br>
+
+    <label>Blood Group Needed:</label><br>
+    <input type="text" name="bloodGroup" required><br><br>
+
+    <label>Hospital Name:</label><br>
+    <input type="text" name="hospital" required><br><br>
+
+    <label>Contact Number:</label><br>
+    <input type="tel" name="contact" required><br><br>
+
+    <button type="submit">Submit Request</button>
   </form>
+
+  <div id="message"></div>
+
   <script>
-    document.getElementById('requestForm').onsubmit = async (e) => {
+    document.getElementById('emergencyForm').addEventListener('submit', function(e) {
       e.preventDefault();
-      const formData = new FormData(e.target);
-      const request = Object.fromEntries(formData.entries());
-      const res = await fetch('/api/request-blood', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(request)
-      });
-      if (res.ok) alert("Blood request submitted!");
-    };
+
+      const patientName = this.patientName.value.trim();
+      const bloodGroup = this.bloodGroup.value.trim();
+      const hospital = this.hospital.value.trim();
+      const contact = this.contact.value.trim();
+
+      if (!patientName || !bloodGroup || !hospital || !contact) {
+        document.getElementById('message').innerText = "Please fill all fields.";
+        return;
+      }
+
+      document.getElementById('message').innerText =
+        `Emergency request submitted for ${patientName} (Blood Group: ${bloodGroup}) at ${hospital}. We will contact you shortly.`;
+
+      this.reset();
+    });
   </script>
 </body>
 </html>
+
