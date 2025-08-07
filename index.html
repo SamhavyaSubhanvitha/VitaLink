@@ -2,56 +2,37 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>VitaLink Dashboard</title>
+  <title>VitaLink</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <header>
-    <img src="assets/logo.png" alt="VitaLink Logo" width="50">
-    <h1>VitaLink</h1>
-    <p>Blood Donation Network</p>
+    <img src="assets/vitalink-logo.jpeg" alt="VitaLink Logo" width="100">
+    <h1>Welcome to VitaLink</h1>
+    <p>Your trusted Blood Donation Network</p>
   </header>
 
   <main>
-    <section class="welcome">
-      <h2>Welcome back, dgddrtdgv</h2>
-      <p>Managing your blood requests and health.</p>
-    </section>
+    <h2>Register Now</h2>
+    <a href="donor.html">Register as Donor</a><br>
+    <a href="hospital.html">Register Hospital</a><br>
+    <a href="emergency.html">Emergency Blood Request</a><br>
 
-    <section class="stats">
-      <div class="card">Total Blood Units<br><strong>0</strong><br><small>+12% from last week</small></div>
-      <div class="card">Active Requests<br><strong>0</strong><br><small>0 urgent • 0 standard</small></div>
-      <div class="card">Available Donors<br><strong>156</strong><br><small>89 nearby (within 5km)</small></div>
-      <div class="card">Success Rate<br><strong>94.5%</strong><br><small>Excellent response rate</small></div>
-    </section>
+    <h2>Why Go Premium?</h2>
+    <ul>
+      <li>3-Year Warranty on Blood Access</li>
+      <li>Family gets blood **free**, 3 times within 3 years</li>
+      <li>Priority during emergencies</li>
+    </ul>
+    <p>Get Premium for ₹999 — valid for 3 years</p>
 
-    <section class="inventory">
-      <h3>Blood Inventory</h3>
-      <img src="assets/vitalink-logo.jpeg" alt="VitaLink Logo" style="width: 150px;">
+    <h2>Senior Citizens</h2>
+    <p>Senior citizens get <strong>free blood</strong> access on request — no payment needed.</p>
+  </main>
 
-      <div class="blood-stats">
-        <div>A+<br><span>Out of Stock</span></div>
-        <div>A-<br><span>Out of Stock</span></div>
-        <div>B+<br><span>Out of Stock</span></div>
-        <div>B-<br><span>Out of Stock</span></div>
-        <div>AB+<br><span>Out of Stock</span></div>
-        <div>AB-<br><span>Out of Stock</span></div>
-        <div>O+<br><span>Out of Stock</span></div>
-        <div>O-<br><span>Out of Stock</span></div>
-      </div>
-    </section>
+  <footer>
+    <p>© 2025 VitaLink</p>
+  </footer>
+</body>
+</html>
 
-    <section class="actions">
-      <h3>Quick Actions</h3>
-      <button onclick="window.location.href='emergency.html'">🚨 Emergency Request</button>
-      <button onclick="getLocation()">📍 Find Nearby Donors</button>
-    </section>
-
-    <section class="location">
-      <h3>Location Status</h3>
-      <p id="locationStatus">Location Unavailable</p>
-      <p class="note">Why location is needed:</p>
-      <ul>
-        <li>Find nearby blood donors and hospitals</li>
-        <li>Prioritize emergency requests by distance</li>
-        <li>Improve response times for urgent cases</l
