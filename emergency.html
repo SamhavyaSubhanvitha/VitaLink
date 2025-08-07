@@ -1,40 +1,26 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Emergency Request</title>
-  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <title>Emergency Blood Request</title>
 </head>
 <body>
-  <h2>Emergency Blood Request</h2>
-  <form onsubmit="handleEmergency(event)">
-    <label>Name:</label>
-    <input type="text" required><br>
-
-    <label>Blood Group Needed:</label>
-    <select required>
-      <option>A+</option><option>B+</option><option>O+</option>
-      <option>AB+</option><option>A-</option><option>B-</option>
-      <option>O-</option><option>AB-</option>
-    </select><br>
-
-    <label>Hospital Name:</label>
-    <input type="text" required><br>
-
-    <label>Urgency Level:</label>
-    <select required>
-      <option>Standard</option>
-      <option>Urgent</option>
-    </select><br>
-
-    <button type="submit">Submit Request</button>
+  <h1>Emergency Blood Request</h1>
+  <form id="emergencyForm">
+    <input type="text" placeholder="Patient Name" required><br>
+    <input type="text" placeholder="Blood Group Needed" required><br>
+    <input type="text" placeholder="Hospital Name" required><br>
+    <input type="text" placeholder="Location" required><br>
+    <button type="submit">Request Blood</button>
   </form>
 
   <script>
-    function handleEmergency(e) {
+    document.getElementById("emergencyForm").addEventListener("submit", function(e) {
       e.preventDefault();
-      alert("Request submitted. We'll reach out shortly.");
-      window.location.href = "home.html";
-    }
+      alert("Emergency request submitted!");
+      window.location.href = "dashboard.html";
+    });
   </script>
 </body>
 </html>
+
