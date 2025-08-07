@@ -2,52 +2,29 @@
 <html>
 <head>
   <title>Hospital Registration</title>
-  <style>
-    body {
-      font-family: Arial;
-      margin: 40px;
-    }
-    #message {
-      color: green;
-      margin-top: 20px;
-    }
-  </style>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <h1>Hospital Registration</h1>
-  <form id="hospitalForm">
-    <label>Hospital Name:</label><br>
-    <input type="text" name="hospitalName" required><br><br>
+  <h2>Hospital Registration - VitaLink</h2>
+  <form onsubmit="handleHospital(event)">
+    <label>Hospital Name:</label>
+    <input type="text" name="hospital" required><br>
 
-    <label>Address:</label><br>
-    <input type="text" name="address" required><br><br>
+    <label>Location:</label>
+    <input type="text" name="location" required><br>
 
-    <label>Contact Number:</label><br>
-    <input type="tel" name="contact" required><br><br>
+    <label>Contact Number:</label>
+    <input type="tel" name="contact" required><br>
 
     <button type="submit">Register</button>
   </form>
 
-  <div id="message"></div>
-
   <script>
-    document.getElementById('hospitalForm').addEventListener('submit', function(e) {
+    function handleHospital(e) {
       e.preventDefault();
-
-      const hospitalName = this.hospitalName.value.trim();
-      const address = this.address.value.trim();
-      const contact = this.contact.value.trim();
-
-      if (!hospitalName || !address || !contact) {
-        document.getElementById('message').innerText = "Please fill all fields.";
-        return;
-      }
-
-      document.getElementById('message').innerText =
-        `Thanks, ${hospitalName} has been registered successfully!`;
-
-      this.reset();
-    });
+      alert("Hospital registered successfully!");
+      window.location.href = "home.html";
+    }
   </script>
 </body>
 </html>
