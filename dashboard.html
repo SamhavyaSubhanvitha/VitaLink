@@ -1,36 +1,141 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Dashboard - VitaLink</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>VitaLink Dashboard</title>
   <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0; padding: 0;
+      background: #f8f9fa;
+    }
+
+    header {
+      background-color: #b10000;
+      color: white;
+      padding: 15px;
+      text-align: center;
+    }
+
+    .container {
+      padding: 20px;
+    }
+
+    .welcome {
+      font-size: 1.2em;
+      margin-bottom: 20px;
+    }
+
+    .card {
+      background: white;
+      padding: 15px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      margin-bottom: 20px;
+    }
+
+    .card h3 {
+      margin: 0 0 10px;
+    }
+
+    .stats {
+      display: flex;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+
+    .stat-box {
+      flex: 1 1 200px;
+      background: #ffe6e6;
+      padding: 15px;
+      border-radius: 8px;
+      text-align: center;
+    }
+
+    .footer {
+      text-align: center;
+      font-size: 0.9em;
+      margin-top: 30px;
+      color: gray;
+    }
+
+    .btn {
+      padding: 10px 20px;
+      background: #b10000;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      margin-top: 10px;
+      cursor: pointer;
+    }
+
+    .btn:hover {
+      background: #8a0000;
+    }
+  </style>
 </head>
 <body>
-  <h1>Welcome to VitaLink Dashboard</h1>
 
-  <div class="dashboard">
-    <div class="card">Total Blood Units: <strong>0</strong></div>
-    <div class="card">Available Donors: <strong>156</strong></div>
-    <div class="card">Registered Hospitals: <strong>42</strong></div>
-    <div class="card">Active Requests: <strong>0</strong></div>
-    <div class="card">Success Rate: <strong>94.5%</strong></div>
+  <header>
+    <h1>VitaLink Dashboard</h1>
+    <p>Blood Donation Network</p>
+  </header>
+
+  <div class="container">
+    <div class="welcome">
+      Welcome back, <strong id="username">User</strong>!
+    </div>
+
+    <div class="stats">
+      <div class="stat-box">
+        <h3>Total Donors</h3>
+        <p id="donorCount">156</p>
+      </div>
+      <div class="stat-box">
+        <h3>Total Hospitals</h3>
+        <p id="hospitalCount">24</p>
+      </div>
+      <div class="stat-box">
+        <h3>Active Requests</h3>
+        <p id="requestCount">9</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>Blood Inventory</h3>
+      <ul id="bloodInventory">
+        <li>A+ — Available</li>
+        <li>A- — Available</li>
+        <li>B+ — Out of Stock</li>
+        <li>B- — Available</li>
+        <li>O+ — Available</li>
+        <li>O- — Low</li>
+        <li>AB+ — Available</li>
+        <li>AB- — Out of Stock</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h3>Premium & Senior Citizen Access</h3>
+      <p>If you're a premium user or a senior citizen, you can request blood for free (limited to 3 times for premium users).</p>
+      <button class="btn" onclick="handleBloodRequest()">Request Blood</button>
+    </div>
+
+    <div class="footer">
+      &copy; 2025 VitaLink | All rights reserved.
+    </div>
   </div>
 
-  <h3>Blood Inventory Status</h3>
-  <table>
-    <tr><th>Group</th><th>Status</th></tr>
-    <tr><td>A+</td><td>Out of Stock</td></tr>
-    <tr><td>B+</td><td>Out of Stock</td></tr>
-    <tr><td>O+</td><td>Available</td></tr>
-    <tr><td>AB+</td><td>Available</td></tr>
-  </table>
+  <script>
+    // Simulated login name
+    document.getElementById("username").innerText = localStorage.getItem("username") || "User";
 
-  <h3>Plan Info</h3>
-  <ul>
-    <li>Free Version: Basic Access</li>
-    <li>Premium ₹999: 3-Year Family Coverage (Max 3 Times)</li>
-    <li>Senior Citizens: Always Free Blood Access</li>
-  </ul>
+    function handleBloodRequest() {
+      alert("Blood request submitted. Our team will contact you soon!");
+    }
+  </script>
 </body>
 </html>
-
 
