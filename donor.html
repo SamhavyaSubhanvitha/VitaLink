@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Register as Donor - VitaLink</title>
+  <title>Donor Registration</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <h2>Donor Registration</h2>
-  <form action="/submit-donor" method="POST">
+  <h2>Donor Registration - VitaLink</h2>
+  <form onsubmit="handleDonor(event)">
     <label>Name:</label>
     <input type="text" name="name" required><br>
 
@@ -14,25 +15,29 @@
 
     <label>Blood Group:</label>
     <select name="blood_group" required>
-      <option value="A+">A+</option>
-      <option value="B+">B+</option>
-      <option value="O+">O+</option>
-      <option value="AB+">AB+</option>
-      <option value="A-">A-</option>
-      <option value="B-">B-</option>
-      <option value="O-">O-</option>
-      <option value="AB-">AB-</option>
+      <option>A+</option><option>B+</option><option>O+</option>
+      <option>AB+</option><option>A-</option><option>B-</option>
+      <option>O-</option><option>AB-</option>
     </select><br>
 
-    <label>Senior Citizen?</label>
+    <label>Senior Citizen:</label>
     <input type="checkbox" name="senior"><br>
 
-    <label>Premium Plan (₹999 for 3 yrs family protection)?</label>
+    <label>Premium Plan (₹999 for 3yrs):</label>
     <input type="checkbox" name="premium"><br>
 
     <button type="submit">Register</button>
   </form>
+
+  <script>
+    function handleDonor(e) {
+      e.preventDefault();
+      alert("Donor registered successfully! Redirecting to dashboard...");
+      window.location.href = "home.html";
+    }
+  </script>
 </body>
 </html>
+
 
 
