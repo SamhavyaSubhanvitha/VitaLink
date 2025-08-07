@@ -1,141 +1,26 @@
-<!DOCTYPE html>
+
+    <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>VitaLink Dashboard</title>
-  <link rel="stylesheet" href="style.css">
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0; padding: 0;
-      background: #f8f9fa;
-    }
-
-    header {
-      background-color: #b10000;
-      color: white;
-      padding: 15px;
-      text-align: center;
-    }
-
-    .container {
-      padding: 20px;
-    }
-
-    .welcome {
-      font-size: 1.2em;
-      margin-bottom: 20px;
-    }
-
-    .card {
-      background: white;
-      padding: 15px;
-      border-radius: 10px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
-      margin-bottom: 20px;
-    }
-
-    .card h3 {
-      margin: 0 0 10px;
-    }
-
-    .stats {
-      display: flex;
-      gap: 15px;
-      flex-wrap: wrap;
-    }
-
-    .stat-box {
-      flex: 1 1 200px;
-      background: #ffe6e6;
-      padding: 15px;
-      border-radius: 8px;
-      text-align: center;
-    }
-
-    .footer {
-      text-align: center;
-      font-size: 0.9em;
-      margin-top: 30px;
-      color: gray;
-    }
-
-    .btn {
-      padding: 10px 20px;
-      background: #b10000;
-      color: white;
-      border: none;
-      border-radius: 5px;
-      margin-top: 10px;
-      cursor: pointer;
-    }
-
-    .btn:hover {
-      background: #8a0000;
-    }
-  </style>
+  <meta charset="UTF-8">
+  <title>Dashboard</title>
 </head>
 <body>
+  <img src="logo.png" alt="VitaLink Logo" width="100" />
 
-  <header>
-    <h1>VitaLink Dashboard</h1>
-    <p>Blood Donation Network</p>
-  </header>
+  <h1>Welcome back, Donor!</h1>
+  <p>Managing your blood requests and health.</p>
 
-  <div class="container">
-    <div class="welcome">
-      Welcome back, <strong id="username">User</strong>!
-    </div>
+  <h2>Blood Inventory</h2>
+  <ul>
+    <li>A+ – 0 units</li>
+    <li>B+ – 0 units</li>
+    <li>O+ – 0 units</li>
+    <li>AB+ – 0 units</li>
+    <li>O- – 0 units</li>
+  </ul>
 
-    <div class="stats">
-      <div class="stat-box">
-        <h3>Total Donors</h3>
-        <p id="donorCount">156</p>
-      </div>
-      <div class="stat-box">
-        <h3>Total Hospitals</h3>
-        <p id="hospitalCount">24</p>
-      </div>
-      <div class="stat-box">
-        <h3>Active Requests</h3>
-        <p id="requestCount">9</p>
-      </div>
-    </div>
-
-    <div class="card">
-      <h3>Blood Inventory</h3>
-      <ul id="bloodInventory">
-        <li>A+ — Available</li>
-        <li>A- — Available</li>
-        <li>B+ — Out of Stock</li>
-        <li>B- — Available</li>
-        <li>O+ — Available</li>
-        <li>O- — Low</li>
-        <li>AB+ — Available</li>
-        <li>AB- — Out of Stock</li>
-      </ul>
-    </div>
-
-    <div class="card">
-      <h3>Premium & Senior Citizen Access</h3>
-      <p>If you're a premium user or a senior citizen, you can request blood for free (limited to 3 times for premium users).</p>
-      <button class="btn" onclick="handleBloodRequest()">Request Blood</button>
-    </div>
-
-    <div class="footer">
-      &copy; 2025 VitaLink | All rights reserved.
-    </div>
-  </div>
-
-  <script>
-    // Simulated login name
-    document.getElementById("username").innerText = localStorage.getItem("username") || "User";
-
-    function handleBloodRequest() {
-      alert("Blood request submitted. Our team will contact you soon!");
-    }
-  </script>
+  <p>Total Donors: 156</p>
+  <p>Registered Hospitals: 12</p>
 </body>
 </html>
-
