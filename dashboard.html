@@ -1,35 +1,52 @@
+<!-- dashboard.html -->
 <!DOCTYPE html>
 <html>
 <head>
   <meta charset="UTF-8">
-  <title>VitaLink Dashboard</title>
-  <link rel="stylesheet" href="style.css">
+  <title>Dashboard - VitaLink</title>
 </head>
 <body>
-  <header>
-    <h1>VitaLink Dashboard</h1>
-  </header>
+  <h1>Welcome to VitaLink Dashboard</h1>
+  <div id="userInfo"></div>
 
-  <main>
-    <section>
-      <h2>Blood Availability</h2>
-      <ul>
-        <li>A+: 12 units</li>
-        <li>B+: 9 units</li>
-        <li>O+: 0 units (Out of Stock)</li>
-        <li>AB-: 3 units</li>
-      </ul>
-    </section>
+  <h2>Blood Availability</h2>
+  <ul id="bloodAvailability">
+    <!-- Hardcoded values or fetched from storage -->
+  </ul>
 
-    <section>
-      <h2>Statistics</h2>
-      <p>Registered Donors: 156</p>
-      <p>Registered Hospitals: 12</p>
-    </section>
-  </main>
+  <script>
+    const user = JSON.parse(localStorage.getItem('user'));
 
-  <footer>
-    <a href="index.html">Back to Home</a>
-  </footer>
+    if (!user || !user.isLoggedIn) {
+      alert("You are not logged in. Redirecting to home...");
+      window.location.href = "index.html";
+    } else {
+      // Show user info
+      document.getElementById('userInfo').innerHTML = `
+        <p>Hello, <strong>${user.name}</strong>! You are logged in as a <strong>${user.type}</strong>.</p>
+      `;
+
+      // Display blood availability (hardcoded for now)
+      const bloodInventory = {
+        'A+': 5,
+        'B+': 2,
+        'O+': 0,
+        'AB+': 3,
+        'A-': 1,
+        'B-': 0,
+        'O-': 2,
+        'AB-': 1
+      };
+
+      const list = document.getElementById('bloodAvailability');
+      for (const type in bloodInventory) {
+        const count = bloodInventory[type];
+        const li = document.createElement('li');
+        li.textContent = `${type}: ${count > 0 ? count + ' units' : 'Out of stock'}`;
+        list.appendChild(li);
+      }
+    }
+  </script>
 </body>
 </html>
+
