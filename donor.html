@@ -1,43 +1,28 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+  <meta charset="UTF-8">
   <title>Donor Registration</title>
-  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <h2>Donor Registration - VitaLink</h2>
-  <form onsubmit="handleDonor(event)">
-    <label>Name:</label>
-    <input type="text" name="name" required><br>
-
-    <label>Age:</label>
-    <input type="number" name="age" required><br>
-
-    <label>Blood Group:</label>
-    <select name="blood_group" required>
-      <option>A+</option><option>B+</option><option>O+</option>
-      <option>AB+</option><option>A-</option><option>B-</option>
-      <option>O-</option><option>AB-</option>
-    </select><br>
-
-    <label>Senior Citizen:</label>
-    <input type="checkbox" name="senior"><br>
-
-    <label>Premium Plan (₹999 for 3yrs):</label>
-    <input type="checkbox" name="premium"><br>
-
+  <h1>Donor Registration</h1>
+  <form id="donorForm">
+    <input type="text" placeholder="Full Name" required><br>
+    <input type="number" placeholder="Age" required><br>
+    <input type="text" placeholder="Blood Group" required><br>
     <button type="submit">Register</button>
   </form>
 
   <script>
-    function handleDonor(e) {
+    document.getElementById("donorForm").addEventListener("submit", function(e) {
       e.preventDefault();
-      alert("Donor registered successfully! Redirecting to dashboard...");
-      window.location.href = "home.html";
-    }
+      alert("You are logged in successfully!");
+      window.location.href = "dashboard.html";
+    });
   </script>
 </body>
 </html>
+
 
 
 
