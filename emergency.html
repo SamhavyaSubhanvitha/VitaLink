@@ -1,58 +1,40 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Emergency Blood Request</title>
-  <style>
-    body {
-      font-family: Arial;
-      margin: 40px;
-    }
-    #message {
-      color: red;
-      margin-top: 20px;
-    }
-  </style>
+  <title>Emergency Request</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <h1>Emergency Blood Request</h1>
-  <form id="emergencyForm">
-    <label>Patient Name:</label><br>
-    <input type="text" name="patientName" required><br><br>
+  <h2>Emergency Blood Request</h2>
+  <form onsubmit="handleEmergency(event)">
+    <label>Name:</label>
+    <input type="text" required><br>
 
-    <label>Blood Group Needed:</label><br>
-    <input type="text" name="bloodGroup" required><br><br>
+    <label>Blood Group Needed:</label>
+    <select required>
+      <option>A+</option><option>B+</option><option>O+</option>
+      <option>AB+</option><option>A-</option><option>B-</option>
+      <option>O-</option><option>AB-</option>
+    </select><br>
 
-    <label>Hospital Name:</label><br>
-    <input type="text" name="hospital" required><br><br>
+    <label>Hospital Name:</label>
+    <input type="text" required><br>
 
-    <label>Contact Number:</label><br>
-    <input type="tel" name="contact" required><br><br>
+    <label>Urgency Level:</label>
+    <select required>
+      <option>Standard</option>
+      <option>Urgent</option>
+    </select><br>
 
     <button type="submit">Submit Request</button>
   </form>
 
-  <div id="message"></div>
-
   <script>
-    document.getElementById('emergencyForm').addEventListener('submit', function(e) {
+    function handleEmergency(e) {
       e.preventDefault();
-
-      const patientName = this.patientName.value.trim();
-      const bloodGroup = this.bloodGroup.value.trim();
-      const hospital = this.hospital.value.trim();
-      const contact = this.contact.value.trim();
-
-      if (!patientName || !bloodGroup || !hospital || !contact) {
-        document.getElementById('message').innerText = "Please fill all fields.";
-        return;
-      }
-
-      document.getElementById('message').innerText =
-        `Emergency request submitted for ${patientName} (Blood Group: ${bloodGroup}) at ${hospital}. We will contact you shortly.`;
-
-      this.reset();
-    });
+      alert("Request submitted. We'll reach out shortly.");
+      window.location.href = "home.html";
+    }
   </script>
 </body>
 </html>
-
