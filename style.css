@@ -1,0 +1,42 @@
+body {
+  font-family: 'Segoe UI', sans-serif;
+  padding: 20px;
+  background: #f9f9f9;
+}
+header {
+  text-align: center;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 10px;
+}
+.stats, .inventory .blood-stats, .actions {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.card {
+  background: white;
+  padding: 15px;
+  border-radius: 8px;
+  width: 200px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+.inventory .blood-stats div {
+  background: #eee;
+  padding: 10px;
+  margin: 5px;
+  border-radius: 6px;
+  width: 80px;
+  text-align: center;
+}
+button {
+  padding: 10px 15px;
+  margin-top: 10px;
+  border: none;
+  background: crimson;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+}
+button:hover {
+  background: darkred;
+}
